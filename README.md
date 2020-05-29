@@ -5,7 +5,7 @@
 Notre but est d'apporter un système de reconnaissance faciale au DJI Tello. Notre programme est codé en Python. Nous recommendons d'utiliser Python 3.6 ou supérieur pour éviter toute sorte de bug informatique.
 
 ## Configuration
-Afin que le programme fonctione sur votre machine veuillez éxécuter le fichier [_setup.py_](setup.py)
+Afin que le programme fonctionne sur votre machine veuillez éxécuter le fichier [_setup.py_](setup.py)
 
 Terminal:
 ```
