@@ -1,0 +1,115 @@
+# -*- coding: utf-8 -*-
+#:set Montserrat "polices/Montserrat-Regular.ttf"
+<sManager>:
+    ScreenOne:
+        name: "pageInitiale"
+    ScreenTwo:
+        name: "two"
+    CamPage:
+        name: "camera"
+
+<ScreenOne>:
+    Screen:
+        FloatLayout:
+            canvas.before:
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                    source: 'assets/fond.png'
+            Image:
+                #Logo
+                source: "assets/logo-blanc-ailesrgb.png"
+                size_hint: 0.3, 0.4
+                pos_hint: {'top':0.7, 'right': 0.6}
+            Button:
+                #Boutton
+                id: boutton_commencer
+                font_name: Montserrat
+                text: "Commencer"
+                size_hint: 0.42, 0.12
+                pos_hint: {'top': 0.15, 'right': 0.68}
+                color: 0, 0, 0, 1
+                background_color: [3, 3, 3, 1]
+                font_size_hint: 1
+                on_press:
+                    root.manager.transition.direction = "left"
+                    root.manager.current = "two"
+
+
+<ScreenTwo>:
+    Screen:
+        FloatLayout:
+            canvas.before:
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                    source: 'assets/fond.png'
+            Label:
+                font_name: "polices/Montserrat-SemiBold.ttf"
+                text: "Consignes:"
+                pos_hint: {'top':1.2, 'right':0.75}
+                font_size: '30sp'
+            Label:
+                font_name: Montserrat
+                text: " - Cette application fonctionne seulement avec le drone Tello de DJI®\n\n - Veuillez tout d'abord vous connecter au réseau WIFI de votre drone (ex: TELLO-D3F63D)\n\n - Veuillez vérifier que le drone est bien chargé\n\n - Privilégiez les lieux extenres pour l'utilisation du logiciel\n\n - Les conditions météreologiques peuvent influencer sur la performance du programme.\n\n - L'algorithme ne fonctionne que avec une bonne illumination permettant la reconnaissance faciale. "
+            Button:
+                color: (0, 0, 0, 1)
+                text: "<"
+                font_size: "60sp"
+                size_hint: 0.08, 0.12
+                pos_hint: {'top': 0.965, 'right': 0.1}
+                background_color: (3, 3, 3, 1)
+                on_press:
+                    root.manager.transition.direction = "right"
+                    root.manager.current = "pageInitiale"
+            Image:
+                #Logo
+                source: "assets/logo-blanc-ailesrgb.png"
+                size_hint: 0.1, 0.1
+                pos_hint: {'top': 0.965, 'right': 0.985}
+            Label:
+                font_name: "polices/Montserrat-SemiBold.ttf"
+                size_hint: 0.5, 0.01
+                font_size: "13sp"
+                text: "Les développeurs ne sont pas responsables d'éventuels accidents corporels ou matériels durant l'utilisation de l'application."
+                pos_hint: {'top': 0.05, 'right': 0.6}
+            Button:
+                #Boutton
+                on_press:
+                    root.manager.transition.direction = "left"
+                    root.manager.current = "camera"
+                id: boutton_commencer
+                font_name: "polices/Montserrat-SemiBold.ttf"
+                text: "Continuer"
+                size_hint: 0.21, 0.06
+                pos_hint: {'top': 0.2, 'right': 0.605}
+                color: 0, 0, 0, 1
+                background_color: [3, 3, 3, 1]
+                font_size_hint: 1
+
+
+<DroneImg>:
+    Image:
+        id: my_img
+        source: "assets/white720.jpg"
+    Button:
+        id: start_button
+        text: "Start"
+        size_hint: 0.4, 0.07
+        on_press:
+            root.remove_widget(root.ids.start_button)
+            root.forever()
+            
+    
+        
+
+<CamPage>:
+    Screen:
+        DroneImg:
+        Button: 
+            color: [0, 0, 0, 1]
+            background_normal: 'assets/shutter.png'
+            size_hint: 0.06, 0.1
+            pos_hint: {'top': 0.15, 'right': 0.57}
+            on_press:
+                root.take_photo()
