@@ -1,5 +1,4 @@
 import os
-os.system('mkdir gallerie')
 os.system('pip install opencv-python')
 os.system('pip install kivy')
 os.system('pip install --upgrade pip wheel setuptools')
