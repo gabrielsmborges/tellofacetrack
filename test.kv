@@ -99,8 +99,21 @@
         on_press:
             root.remove_widget(root.ids.start_button)
             root.forever()
+
+    Button:
+        text:"Décoller"
+        size_hint:0.2, 0.2
+        pos_hint : {"left": 0.5}
+        on_press:
+            root.takeoff()
+
+    Button:
+        text:"Atterissage"
+        size_hint:0.2, 0.2
+        pos_hint:{'top': 0.2, 'right': 1}
+        on_press:
+            root.land()
             
-    
         
 
 <CamPage>:
@@ -113,3 +126,4 @@
             pos_hint: {'top': 0.15, 'right': 0.57}
             on_press:
                 root.take_photo()
+            

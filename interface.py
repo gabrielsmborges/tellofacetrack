@@ -63,12 +63,12 @@ class DroneImg(FloatLayout):
     def update(self, dt):
         #Capturer l'image
         frame = cv2.cvtColor(drone.get_frame_read().frame, cv2.COLOR_BGR2BGRA)
-        print(frame.shape)
+        #print(frame.shape)
         frame = np.array(frame)
         #key = cv2.waitKey(int(100/24))
         #Sauvegarder une copie du fram afin de l'enregistrer au cas ou l'utilisateur veut sauvegarder la photo
-        #global im
-        #im = frame.copy()
+        global im
+        im = frame.copy()
         #cv2.imshow('ezf', photo_frame)
         """
             La variable grayframe sert a transformer l'image capturée en noir et blanc qui est 3x moins lourde
@@ -101,8 +101,14 @@ class DroneImg(FloatLayout):
         #Crér un nom personalisé pour ma photo avec la date
         date = date.strftime("%Y-%m-%d_%H-%M-%S")
         #Sauvegarder la photo sur le dossier gallerie avec le nom personalisé
-        #cv2.imwrite(f'gallerie/{date}.png', im)
-   
+        cv2.imwrite(f'gallerie/{date}.png', im)
+
+    def takeoff(self):
+        drone.takeoff()
+    
+    def land(self):
+        drone.land()
+
 class CamPage(Screen):
     def take_photo(self):
         DroneImg().take_photo()
@@ -114,7 +120,8 @@ class TestApp(App):
         return sManager()
 
 
-
+def controlleur(x, y, size):
+    pass
 
 if __name__ == '__main__':
     TestApp.title = "TelloFaceTrack"
