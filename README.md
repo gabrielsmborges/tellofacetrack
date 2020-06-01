@@ -22,6 +22,16 @@ python setup.py
 &nbsp;&nbsp;
 _Cela risque de prendre plusieurs minutes._
 
+#### ou
+Méthode alternative
+
+Terminal: 
+```
+pip install -r requirements.txt
+```
+&nbsp;&nbsp;
+_Cela risque de prendre plusieurs minutes._
+
 
 ## Exécuter
 Une fois votre machine configurée vous pouvez exécuter le fichier [main.py_](main.py)
