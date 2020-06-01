@@ -43,4 +43,9 @@ Terminal:
 ```
 python main.py
 ```
+Si vous n'avez pas un DJI Tello, vous pouvez tester la reconnaissance faciale avec le fichier [exemplewebcam.py](exemplewebcam.py)
 
+Terminal:
+```
+python exemplewebcam.py
+```
