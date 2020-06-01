@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #Eviter que Kivy fasse des prints de debug sur la console
 import os
-#os.environ["KIVY_NO_CONSOLELOG"] = "1"
+os.environ["KIVY_NO_CONSOLELOG"] = "1"
 figlet = False
 try:
     import pyfiglet
@@ -170,10 +170,10 @@ class TelloFaceTrack(App):
         self.icon = "assets/ailesrgb.png"
         return sManager()
     def on_stop(self):
+        #si la bariable drone existe
         if 'drone' in globals():
             drone.land()
             drone.streamoff()
-        cv2.destroyAllWindows()
         sys.exit()
 
     def on_resize(self, w, h):

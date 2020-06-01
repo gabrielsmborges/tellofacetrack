@@ -16,52 +16,64 @@ x = False
 y = False
 z = False
 
+x_control = 0
+y_control = 0
+z_control = 0
+
 height, width = 720, 960
 centerframex = math.ceil(width/2)
 centerframey = math.ceil(height/2)
-
 
 def align_x(drone, face):
     # Coordonnées X
         if ((2 * face[0][0]) + face[0][3])/2 > centerframex + 120 :
             #print('Gauche')
-            drone.send_rc_control(0,0,0,35)
+            #drone.send_rc_control(0,0,0,35)
             x = False
+            return 35
         if ((2 * face[0][0]) + face[0][3])/2 < centerframex - 120:
             #print('Droite')
-            drone.send_rc_control(0,0,0,-35)
+            #drone.send_rc_control(0,0,0,-35)
             x = False
+            return -35
         # X True i.e Visage centré horizontalement
         else: #((2 * face[0][0]) + face[0][3])/2 <= centerframex + 120 and ((2 * face[0][0]) + face[0][3])/2 >= centerframex - 120:
             x = True
+            return 0
 
 def align_y(drone, face):
     # Coordonnées Y
     if (((2 * face[0][1]) + face[0][2])/2) + 150 > centerframey:
         #print('Down')
-        drone.send_rc_control(0,0,-25,0)
+        #drone.send_rc_control(0,0,-25,0)
         y = False
+        return -25
     if (((2 * face [0][1]) + face [0][2]) / 2) + 150 < centerframey:
         #print('Up')
-        drone.send_rc_control(0,0,25,0)
+        #drone.send_rc_control(0,0,25,0)
         y = False
+        return 25
     # Y TRUE i.e Visage centré verticalement
     else: #(((2 * face[0][1]) + face[0][2])/2) + 150 <= centerframey + 120 and (((2 * face [0][1]) + face [0][2]) / 2) + 150 >= centerframey - 120:
-            y = True
+        y = True
+        return 0
 
 def align_z(drone, face):
     # Coordonées Z
     if face[0][3] > 200:
         #print("Près")
-        drone.send_rc_control(0,-20,0,0)
+        #drone.send_rc_control(0,-20,0,0)
         z = False
+        return -20
     if face[0][3] < 120:
         #print('Loin')
         drone.send_rc_control(0,20,0,0)
         z = False
+        return 20
     # Z TRUE i.e Bonne distance de l'utilisateur
     else: #(face[0][3]) <= 300 and (face[0][3] >= 200):
-            z = True
+        z = True
+        return 0
     
 def command(drone, face):
     """
@@ -76,9 +88,8 @@ def command(drone, face):
                 #print('Centré')
                 drone.send_rc_control(0,0,0,0)
             else:
-                Thread(target = align_x, args = (drone, face)).start()
-                Thread(target = align_y, args = (drone, face)).start()
-                Thread(target = align_z, args = (drone, face)).start()
+                #Si le visage n'est pas centré envoyer commande pour que le drone centre le visage
+                drone.send_rc_control(0, align_z(drone, face), align_y(drone, face), align_x(drone, face))
         else:
             #S'il ny a pas de visages détectés, envoyer des commandes nulles au drone
             drone.send_rc_control(0,0,0,0)
