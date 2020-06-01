@@ -28,6 +28,6 @@ Une fois votre machine configurée vous pouvez exécuter le fichier [main.py_](m
 
 Terminal:
 ```
-python interface.py
+python main.py
 ```
 
