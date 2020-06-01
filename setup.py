@@ -1,3 +1,5 @@
+##installer les bibliothèques necessaires pour le programme
+
 import os
 os.system('pip install pyfiglet')
 os.system('pip install djitellopy')
