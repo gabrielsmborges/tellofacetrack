@@ -11,7 +11,7 @@ Notre but est d'apporter un système de reconnaissance faciale au DJI Tello. Not
 ## Configuration
 
 ```diff
-- **Python 3.7 requis**
+- Python 3.7 requis
 ```
 Afin que le programme fonctionne sur votre machine veuillez éxécuter le fichier [_setup.py_](setup.py)
 
