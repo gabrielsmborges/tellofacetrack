@@ -1,4 +1,6 @@
 import os
+os.system('pip install pyfiglet')
+os.system('pip install djitellopy')
 os.system('pip install opencv-python')
 os.system('pip install kivy')
 os.system('pip install --upgrade pip wheel setuptools')

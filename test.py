@@ -1,14 +1,6 @@
-from djitellopy import Tello
-import cv2
-from time import sleep
+import numpy as np
 
-drone = Tello()
-drone.connect()
-drone.streamon()
-sleep(3)
-video = drone.get_frame_read()
+a = np.array([])
 
-while True:
-    cv2.imshow('Tellotest', video.frame)
-    key = cv2.waitKey(int(1000/24))
-    
+if a == None:
+    print('dcv')
