@@ -1,0 +1,6 @@
+pyfiglet
+djitellopy
+opencv-python
+kivy
+kivy.deps.gstreamer
+kivy.deps.angle
