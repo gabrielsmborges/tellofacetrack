@@ -24,7 +24,7 @@ _Cela risque de prendre plusieurs minutes._
 
 
 ## Exécuter
-Une fois votre machine configurée vous pouvez exécuter le fichier [_interface.py_](interface.py)
+Une fois votre machine configurée vous pouvez exécuter le fichier [main.py_](main.py)
 
 Terminal:
 ```
