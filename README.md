@@ -6,7 +6,7 @@
  Ceci est le projet des élèves [Gabriel Borges](https://github.com/gabrielsmborges), [Axel Debat](https://github.com/axeldebat) et [Paul Landa](https://github.com/padvan) de la classe d'ISN de 2019/20 du Lycée Marceau à Chartres
 
 ## But
-Notre but est d'apporter un système de reconnaissance faciale au DJI Tello. Notre programme est codé en Python. Nous recommendons d'utiliser Python <= 3.7 ou supérieur pour éviter toute sorte de bug informatique.
+Notre but est d'apporter un système de reconnaissance faciale au DJI Tello. Notre programme est codé en Python. Nous recommendons d'utiliser Python <= 3.7 pour éviter toute sorte de bug informatique.
 
 ## Configuration
 
