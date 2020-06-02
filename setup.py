@@ -1,5 +1,8 @@
-##installer les bibliothèques necessaires pour le programme
-#executer des commandes pip
+#!/usr/bin/python3.7
+# -*- coding: utf-8 -*-
+
+# installer les bibliothèques necessaires pour le programme
+# executer des commandes pip
 import os
 os.system('pip install pyfiglet')
 os.system('pip install djitellopy')
