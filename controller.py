@@ -30,12 +30,13 @@ centerframey = math.ceil(height / 2)
 
 def align_x(drone, face):
     # Coordonnées X
-    # (2 * x) +
+    # Trop à droite
     if ((2 * face[0][0]) + face[0][3]) / 2 > centerframex + 120:
         # print('Gauche')
         # drone.send_rc_control(0,0,0,35)
         x = False
         return 35
+    # Trop à gauche
     if ((2 * face[0][0]) + face[0][3]) / 2 < centerframex - 120:
         # print('Droite')
         # drone.send_rc_control(0,0,0,-35)
@@ -50,11 +51,13 @@ def align_x(drone, face):
 
 def align_y(drone, face):
     # Coordonnées Y
+    # Trop haut
     if (((2 * face[0][1]) + face[0][2]) / 2) + 150 > centerframey:
         # print('Down')
         # drone.send_rc_control(0,0,-25,0)
         y = False
         return -25
+    # Trop bas
     if (((2 * face[0][1]) + face[0][2]) / 2) + 150 < centerframey:
         # print('Up')
         # drone.send_rc_control(0,0,25,0)
@@ -68,11 +71,13 @@ def align_y(drone, face):
 
 def align_z(drone, face):
     # Coordonées Z
+    # Trop près
     if face[0][3] > 200:
         # print("Près")
         # drone.send_rc_control(0,-20,0,0)
         z = False
         return -20
+    # Trop loin
     if face[0][3] < 120:
         # print('Loin')
         drone.send_rc_control(0, 20, 0, 0)
